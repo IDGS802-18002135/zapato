@@ -1,0 +1,26 @@
+
+
+
+<div class="container mt-4">
+    <h3>Zapatos</h3>
+    <div class="container mt-4">
+        <h3>Últimos Zapatos</h3>
+      
+        <div class="row">
+
+          <div class="col-md-4 " *ngFor="let zapato of listaZapatos.slice(0, 3)">
+            <div class="card">
+              <img class="card-img-top" [src]="zapato.imagen" alt="{{ zapato.nombre }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ zapato.nombre }}</h5>
+                <p class="card-text">Descripción: {{ zapato.descripcion }}</p>
+                <p class="card-text">Precio: {{ zapato.precio }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-center" *ngIf="listaZapatos.length === 0">
+            <p>No hay zapatos disponibles.</p>
+        </div>
+      </div>
+    </div>

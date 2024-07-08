@@ -1,0 +1,42 @@
+
+
+    
+<div class="container mt-4">
+    <h3>Categorias</h3>
+    <div class="btn-group" role="group" aria-label="Categorías">
+        <button type="button" class="btn btn-primary" (click)="buscarZapatosDeportivo()">Deportivos</button>
+        <button type="button" class="btn btn-primary" (click)="buscarZapatosCasual()">Casual</button>
+        <button type="button" class="btn btn-primary" (click)="buscarZapatosMujer()">Mujer</button>
+    </div>
+    <br>
+    <h3>Buscar Zapatos</h3>
+
+    
+  <form [formGroup]="buscarForm" (ngSubmit)="buscarZapatos()">
+    <input type="text" formControlName="palabraClave" placeholder="Buscar zapatos..." />
+    <button type="submit">Buscar</button>
+  </form>
+  <div class="container mt-4">
+    <h3>Zapatos</h3>
+    <div class="container mt-4">
+        <h3>Últimos Zapatos</h3>
+      
+        <div class="row">
+
+          <div class="col-md-4 " *ngFor="let zapato of listaZapatos">
+            <div class="card">
+              <img class="card-img-top" [src]="zapato.imagen" alt="{{ zapato.nombre }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ zapato.nombre }}</h5>
+                <p class="card-text">Descripción: {{ zapato.descripcion }}</p>
+                <p class="card-text">Precio: {{ zapato.precio }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-center" *ngIf="listaZapatos.length === 0">
+            <p>No hay zapatos disponibles.</p>
+        </div>
+      </div>
+    </div>
+    </div>
